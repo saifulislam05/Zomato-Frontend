@@ -4,6 +4,7 @@ import ServeType from "../components/ServeType";
 import Collection from "../components/Collection";
 import PopularLocalities from "../components/PopularLocalities";
 import GetApp from "../components/GetApp";
+import ExploreOptions from "../components/ExploreOptions";
 
 const Home = () => {
   return (
@@ -12,7 +13,8 @@ const Home = () => {
       <ServeType />
       <Collection />
       <PopularLocalities />
-      <GetApp/>
+      <GetApp />
+      <ExploreOptions/>
     </div>
   );
 };

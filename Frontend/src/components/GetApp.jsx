@@ -12,7 +12,7 @@ const GetApp = () => {
             alt=""
           />
         </div>
-        <div className="w-8/12">
+        <div className="w-7/12">
           <h1 className="text-3xl font-semibold">Get the Zomato app</h1>
           <p className="font-light my-2">
             We will send you a link, open it on your phone to download the app

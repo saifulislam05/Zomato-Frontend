@@ -5,6 +5,7 @@ import Collection from "../components/Collection";
 import PopularLocalities from "../components/PopularLocalities";
 import GetApp from "../components/GetApp";
 import ExploreOptions from "../components/ExploreOptions";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -14,7 +15,8 @@ const Home = () => {
       <Collection />
       <PopularLocalities />
       <GetApp />
-      <ExploreOptions/>
+      <ExploreOptions />
+      <Footer/>
     </div>
   );
 };

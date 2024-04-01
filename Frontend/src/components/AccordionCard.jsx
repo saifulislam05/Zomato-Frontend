@@ -5,10 +5,13 @@ const AccordionCard = ({ section, index, expandedSection, toggleSection }) => {
   const isOpen = expandedSection === index;
 
   return (
-    <div className="accordion w-full border rounded-xl shadow-md p-5 py-4">
+    <div
+      className="accordion w-full border rounded-xl shadow-md p-5 py-4 cursor-pointer"
+      onClick={() => toggleSection(index)}
+    >
       <div
-        className="w-full flex justify-between items-center cursor-pointer"
-        onClick={() => toggleSection(index)}
+        className="w-full flex justify-between items-center "
+        
       >
         <p className="text-lg">{section.title}</p>
         {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -18,10 +21,14 @@ const AccordionCard = ({ section, index, expandedSection, toggleSection }) => {
           {section.content.map((item, itemIndex) => (
             <li
               key={itemIndex}
-              className={`w-full ${itemIndex === 0 ? "list-none" : ""} flex items-center justify-between`}
+              className={`w-full ${
+                itemIndex === 0 ? "list-none" : ""
+              } flex items-center justify-between`}
             >
               <a href="#">{item}</a>
-              {itemIndex < section.content.length - 1 && <div className="w-1 h-1 rounded-full bg-gray-500 mx-2 z-50"></div>}
+              {itemIndex < section.content.length - 1 && (
+                <div className="w-1 h-1 rounded-full bg-gray-500 mx-2 z-50"></div>
+              )}
             </li>
           ))}
         </ul>

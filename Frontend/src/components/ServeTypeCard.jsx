@@ -2,7 +2,7 @@ import React from "react";
 
 const ServeTypeCard = ({ title, description, image }) => {
   return (
-    <div className="row-span-1 pb-4 bg-white shadow-xl rounded-2xl overflow-hidden">
+    <div className="row-span-1 pb-4 bg-white shadow-lg rounded-2xl overflow-hidden hover:scale-105 duration-300 cursor-pointer">
 
       <div
         className={`image h-52 bg-center bg-cover`}

@@ -4,18 +4,12 @@ import { IoMdArrowDropright } from "react-icons/io";
 const CollectionCard = ({ title, content, imageUrl }) => {
   return (
     <div
-      className="grid-cols-1 rounded-lg overflow-hidden shadow-lg h-96 flex flex-col justify-end"
+      className="grid-cols-1 rounded-lg overflow-hidden shadow-lg h-96 flex flex-col justify-end cursor-pointer"
       style={{
-        // backgroundImage: `url(${imageUrl})`,
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(${imageUrl})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(${imageUrl})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      //   style={{
-      //     backgroundImage: `url(${imageUrl})`,
-      //     backgroundSize: "cover",
-      //     backgroundPosition: "center",
-      //   }}
     >
       <div className="p-4 text-white">
         <p className="font-bold text-xl">{title}</p>

@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
 const SearchBox = () => {
   return (
-    <div className="w-full md:w-10/12 lg:w-8/12 bg-white text-[#8a8a8a] rounded-xl flex justify-between p-4 gap-2">
+    <div className="w-full md:w-10/12 lg:w-7/12 bg-white text-[#8a8a8a] rounded-2xl border flex justify-between p-3 gap-2">
       <div className="selectBox w-4/12 flex justify-between items-center gap-2 border-r-2 pr-1">
         <div className="locationIcon w-1 ">
           <FaLocationDot color="#ff7e8b" />

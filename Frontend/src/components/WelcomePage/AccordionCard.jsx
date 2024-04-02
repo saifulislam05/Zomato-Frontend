@@ -6,7 +6,7 @@ const AccordionCard = ({ section, index, expandedSection, toggleSection }) => {
 
   return (
     <div
-      className="accordion w-full border rounded-xl shadow-md p-5 py-4 cursor-pointer"
+      className="accordion w-full border rounded-xl shadow-sm p-5 py-4 cursor-pointer"
       onClick={() => toggleSection(index)}
     >
       <div

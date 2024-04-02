@@ -12,7 +12,7 @@ import {
   forRestaurants,
   learnMore,
   zomaverse,
-} from "../data/footerData";
+} from "../../data/footerData";
 
 const Footer = () => {
   return (

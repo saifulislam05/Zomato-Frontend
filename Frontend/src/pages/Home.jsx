@@ -1,24 +1,36 @@
-import React from "react";
-import Header from "../components/Header";
-import ServeType from "../components/ServeType";
-import Collection from "../components/Collection";
-import PopularLocalities from "../components/PopularLocalities";
-import GetApp from "../components/GetApp";
-import ExploreOptions from "../components/ExploreOptions";
-import Footer from "../components/Footer";
+import React from 'react'
+import Header from '../components/Home/Header'
+import Footer from '../components/WelcomePage/Footer';
+import { useState } from 'react';
+import TabOptions from '../components/Home/TabOptions';
 
 const Home = () => {
+  const [activeTab, setActiveTab] = useState("Delivery");
+
   return (
     <div>
       <Header />
-      <ServeType />
-      <Collection />
-      <PopularLocalities />
-      <GetApp />
-      <ExploreOptions />
-      <Footer/>
+      <TabOptions activeTab={activeTab} setActiveTab={setActiveTab} />
+      {/* {getCorrectScreen(activeTab)} */}
+      <Footer />
     </div>
   );
-};
+}
 
-export default Home;
+// const getCorrectScreen = (tab) => {
+//   switch (tab) {
+//     case "Delivery":
+//       return <Delivery />;
+
+//     case "Dining Out":
+//       return <DiningOut />;
+
+//     case "Nightlife":
+//       return <Nightlife />;
+
+//     default:
+//       return <Delivery />;
+//   }
+// };
+
+export default Home

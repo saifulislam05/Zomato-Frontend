@@ -32,36 +32,40 @@ const tabs = [{
 
 const TabOptions = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="w-full md:w-10/12  mx-auto">
-      <div className="w-full md:w-1/2 flex justify-between items-center  mt-6">
-        {tabs.map((tab) => (
-          <div
-            className={`flex  items-center justify-center cursor-pointer gap-1.5 pb-3 ${
-              activeTab === tab.name ? "border-b-2 border-red-400" : ""
-            } `}
-            onClick={() => setActiveTab(tab.name)}
-          >
+    <div className=" border-b">
+      <div className="w-full md:w-10/12  mx-auto ">
+        <div className="w-full md:w-1/2 flex justify-between items-center  mt-6">
+          {tabs.map((tab) => (
             <div
-              key={tab.id}
-              className={`rounded-full  ${
-                activeTab === tab.name ? tab.backdrop : "bg-gray-100"
-              }`}
+              className={`flex  items-center justify-center cursor-pointer gap-1.5 pb-3 ${
+                activeTab === tab.name ? "border-b-2 border-red-400" : ""
+              } `}
+              onClick={() => setActiveTab(tab.name)}
             >
-              <img
-                src={activeTab === tab.name ? tab.active_img : tab.inactive_img}
-                className="w-8 h-8 m-3 "
-                alt={tab.name}
-              />
+              <div
+                key={tab.id}
+                className={`rounded-full  ${
+                  activeTab === tab.name ? tab.backdrop : "bg-gray-100"
+                }`}
+              >
+                <img
+                  src={
+                    activeTab === tab.name ? tab.active_img : tab.inactive_img
+                  }
+                  className="w-8 h-8 m-3 "
+                  alt={tab.name}
+                />
+              </div>
+              <div
+                className={` text-lg font-medium ${
+                  activeTab === tab.name ? "text-red-400" : "text-gray-500"
+                }`}
+              >
+                {tab.name}
+              </div>
             </div>
-            <div
-              className={` text-lg font-medium ${
-                activeTab === tab.name ? "text-red-400" : "text-gray-500"
-              }`}
-            >
-              {tab.name}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

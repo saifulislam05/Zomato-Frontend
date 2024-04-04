@@ -3,6 +3,7 @@ import {dining as diningList} from "../data/dining"
 import Collection from "../components/WelcomePage/Collection";
 import Filter from "../components/Home/Filter";
 import ExploreSection from "../components/Home/ExploreSection";
+import ExploreOptions from "../components/WelcomePage/ExploreOptions";
 
 const diningFilters = [
   {
@@ -93,6 +94,7 @@ const DiningOut = () => {
           collectionName="Trending dining Restaurants in Kolkata"
         />
       </div>
+      <ExploreOptions/>
     </>
   );
 };

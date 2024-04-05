@@ -24,7 +24,7 @@ const LogIn = ({ setIsLogInModalOpen }) => {
             <img
               src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/india-flag-icon.png"
               alt=""
-              srcset=""
+              srcSet=""
               className="w-3/12"
             />
             <select name="" id="" className="w-8/12">
@@ -59,7 +59,7 @@ const LogIn = ({ setIsLogInModalOpen }) => {
           <img
             src="https://cdn.iconscout.com/icon/free/png-512/free-google-160-189824.png?f=webp&w=256"
             alt=""
-            srcset=""
+            srcSet=""
             className="w-6 h-6"
           />
           <span>Continue with Email</span>

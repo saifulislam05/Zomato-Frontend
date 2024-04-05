@@ -25,7 +25,7 @@ const Footer = () => {
               <img
                 src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/india-flag-icon.png"
                 alt=""
-                srcset=""
+                srcSet=""
                 className="w-3/12"
               />
               <p>India</p>

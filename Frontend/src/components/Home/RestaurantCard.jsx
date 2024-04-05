@@ -1,6 +1,6 @@
 import React from "react";
 
-const RestaurantsCards = ({ restaurant, i }) => {
+const RestaurantCard = ({ restaurant, i }) => {
   const name = restaurant?.info?.name ?? "";
   const coverImg =
     restaurant?.info?.image?.url ?? restaurant?.info?.o2FeaturedImage?.url;
@@ -17,7 +17,7 @@ const RestaurantsCards = ({ restaurant, i }) => {
   const discount =
     offers.length > 1
       ? offers[1].text
-      : offers.length === 1
+      : offers?.length === 1
       ? offers[0].text
       : null;
 
@@ -96,4 +96,4 @@ const RestaurantsCards = ({ restaurant, i }) => {
   );
 };
 
-export default RestaurantsCards;
+export default RestaurantCard;

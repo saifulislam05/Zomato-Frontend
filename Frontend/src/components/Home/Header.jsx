@@ -3,7 +3,8 @@ import SearchBox from '../WelcomePage/SearchBox'
 
 const Header = () => {
   return (
-    <div className="w-10/12 mx-auto flex justify-between items-center py-3">
+    <div className="w-full sticky top-0 border-b bg-white z-[999]">
+    <div className="w-10/12 mx-auto flex justify-between items-center py-3 ">
       <h1 className='text-4xl italic font-bold'>Zomato</h1>
 
       <SearchBox />
@@ -11,6 +12,7 @@ const Header = () => {
         <li onClick={() => setIsLogInModalOpen(true)}>Log in</li>
         <li onClick={() => setIsSignUpModalOpen(true)}>Sign up</li>
       </ul>
+    </div>
     </div>
   );
 }

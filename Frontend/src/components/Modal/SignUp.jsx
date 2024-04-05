@@ -48,7 +48,7 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
           <img
             src="https://cdn.iconscout.com/icon/free/png-512/free-google-160-189824.png?f=webp&w=256"
             alt=""
-            srcset=""
+            srcSet=""
             className="w-6 h-6"
           />
           <span>Continue with Google</span>

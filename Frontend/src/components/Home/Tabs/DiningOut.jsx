@@ -1,11 +1,11 @@
 import React from "react";
-import {nightLife} from "../data/nightLife"
-import Filter from "../components/Home/Filter";
-import ExploreSection from "../components/Home/ExploreSection";
-import ExploreOptions from "../components/WelcomePage/ExploreOptions";
-import Collection from "../components/WelcomePage/Collection";
+import {dining as diningList} from "../../../data/dining"
+import Collection from "../../WelcomePage/Collection";
+import Filter from "../Filter";
+import ExploreSection from "../ExploreSection";
+import ExploreOptions from "../../WelcomePage/ExploreOptions";
 
-const nightFilters = [
+const diningFilters = [
   {
     id: 1,
     icon: <i className="fi fi-rr-settings-sliders absolute-center"></i>,
@@ -14,22 +14,35 @@ const nightFilters = [
   {
     id: 2,
     title: "Pro Offers",
-    icon: <i className="fi fi-rr-angle-down absolute-center"></i>,
-  },
-  {
-    id: 3,
-    title: "Distance",
-    icon: <i className="fi fi-rr-apps-sort absolute-center"></i>,
+    // icon: <i className="fi fi-rr-angle-down absolute-center"></i>,
   },
   {
     id: 5,
-    title: "Rating: 4.0+",
+    title: "Online Bookings",
   },
   {
     id: 4,
-    title: "Pubs & Bars",
+    title: "Outdoor Seating",
+  },
+  {
+    id: 6,
+    title: "Rating: 4.0+",
+  },
+  {
+    id: 7,
+    title: "Cuisines",
+    // icon: <i className="fi fi-rr-angle-down absolute-center"></i>,
+  },
+  {
+    id: 8,
+    title: "Cafes",
+  },
+  {
+    id: 9,
+    title: "Open Now",
   },
 ];
+
 const collectionData = [
   {
     id: 1,
@@ -60,29 +73,30 @@ const collectionData = [
       "https://b.zmtcdn.com/data/collections/52f34e70dc354041b6b869018b150e9d_1709813345.png?output-format=webp",
   },
 ];
-const NightLife = () => {
+
+const DiningOut = () => {
   return (
     <>
       <div className="bg-[#f8f8f8] py-7">
-        <Collection collectionData={collectionData} />
+        <Collection collectionData={ collectionData} />
       </div>
       <div className="w-10/12 mx-auto my-6">
-        <Filter filterList={nightFilters} />
+        <Filter filterList={diningFilters} />
         <div className="my-5">
           <img
             src="https://b.zmtcdn.com/data/o2_assets/da94405b04f6ae6bf64a4e2a01b1b5c11686563732.png"
             alt=""
-            srcset=""
+            srcSet=""
           />
         </div>
         <ExploreSection
-          restaurants={nightLife}
-          collectionName="Nightlife Restaurants in Kolkata"
+          restaurants={diningList}
+          collectionName="Trending dining Restaurants in Kolkata"
         />
       </div>
-      <ExploreOptions />
+      <ExploreOptions/>
     </>
   );
 };
 
-export default NightLife;
+export default DiningOut;

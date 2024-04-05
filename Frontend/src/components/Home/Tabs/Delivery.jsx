@@ -1,9 +1,9 @@
 import React from "react";
-import { restaurants } from "../data/restaurants";
-import Filter from "../components/Home/Filter";
-import ExploreSection from "../components/Home/ExploreSection";
-import ExploreOptions from "../components/WelcomePage/ExploreOptions";
-import DeliveryCollections from "../components/Home/DeliveryCollection";
+import { restaurants } from "../../../data/restaurants";
+import Filter from "../Filter";
+import ExploreSection from "../ExploreSection";
+import ExploreOptions from "../../WelcomePage/ExploreOptions";
+import DeliveryCollections from "../DeliveryCollection";
 
 const deliveryFilters = [
   {

@@ -3,12 +3,12 @@ import Header from "../components/Home/Header";
 import Footer from "../components/WelcomePage/Footer";
 import { useState } from "react";
 import TabOptions from "../components/Home/TabOptions";
-import Delivery from "./Delivery";
-import DiningOut from "./DiningOut";
-import NightLife from "./NightLife";
+import Delivery from "../components/Home/Tabs/Delivery";
+import DiningOut from "../components/Home/Tabs/DiningOut";
+import NightLife from "../components/Home/Tabs/NightLife";
 
 const Home = () => {
-  const [activeTab, setActiveTab] = useState("Delivery");
+  const [activeTab, setActiveTab] = useState("Dining Out");
 
   return (
     <div>

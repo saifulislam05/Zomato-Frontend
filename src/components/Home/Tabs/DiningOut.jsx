@@ -1,9 +1,12 @@
 import React from "react";
-import {dining as diningList} from "../../../data/dining"
+import { dining as diningList } from "../../../data/dining";
 import Collection from "../../WelcomePage/Collection";
 import Filter from "../Filter";
 import ExploreSection from "../ExploreSection";
 import ExploreOptions from "../../WelcomePage/ExploreOptions";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const diningFilters = [
   {
@@ -75,10 +78,29 @@ const collectionData = [
 ];
 
 const DiningOut = () => {
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    // Fetch restaurants data from API
+    const fetchRestaurants = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:10000/v1/api/restaurant"
+        );
+        setRestaurants(response.data.data); // Assuming the API response structure matches the expected format
+      } catch (error) {
+        console.error("Failed to fetch restaurants:", error);
+      }
+    };
+
+
+    fetchRestaurants();
+    
+  }, []);
   return (
     <>
       <div className="bg-[#f8f8f8] py-7">
-        <Collection collectionData={ collectionData} />
+        <Collection collectionData={collectionData} />
       </div>
       <div className="w-10/12 mx-auto my-6">
         <Filter filterList={diningFilters} />
@@ -89,12 +111,14 @@ const DiningOut = () => {
             srcSet=""
           />
         </div>
-        <ExploreSection
-          restaurants={diningList}
-          collectionName="Trending dining Restaurants in Kolkata"
-        />
+        {restaurants.length >0 && (
+          <ExploreSection
+            restaurants={restaurants}
+            collectionName="Trending dining Restaurants in Kolkata"
+          />
+        )}
       </div>
-      <ExploreOptions/>
+      <ExploreOptions />
     </>
   );
 };

@@ -24,7 +24,7 @@ const ExploreCard = ({ restaurant, i }) => {
       : null;
 
   return (
-    <Link to={`/restaurant/${restaurant?.info?.resId}`}>
+    <Link to={`/restaurant/${restaurant?._id}`}>
       <div
         className={`p-2.5 border border-transparent rounded-xl cursor-pointer hover:shadow-xl duration-200 ${
           i < 3 ? "mt-3" : "mt-12 mb-6"

@@ -18,4 +18,6 @@ app.use("/v1/api/user", userRoutes);
 
 //localhost:10000/v1/api
 
-http: app.listen(10000, () => console.log("Server is running on port 10000"));
+http: app.listen(process.env.PORT, () =>
+  console.log(`Server is running on port ${process.env.PORT}`)
+);

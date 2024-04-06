@@ -37,13 +37,13 @@ const TabOptions = ({ activeTab, setActiveTab }) => {
         <div className="w-full md:w-1/2 flex justify-between items-center  mt-6">
           {tabs.map((tab) => (
             <div
+              key={tab.id}
               className={`flex  items-center justify-center cursor-pointer gap-1.5 pb-3 ${
                 activeTab === tab.name ? "border-b-2 border-red-400" : ""
               } `}
               onClick={() => setActiveTab(tab.name)}
             >
               <div
-                key={tab.id}
                 className={`rounded-full  ${
                   activeTab === tab.name ? tab.backdrop : "bg-gray-100"
                 }`}

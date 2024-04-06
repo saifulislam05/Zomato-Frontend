@@ -5,11 +5,7 @@ import crypto from "crypto";
 import userAddressSchema from "./userAddressSchema.js";
 
 const userSchema = new mongoose.Schema({
-  firstname: {
-    type: String,
-    required: true,
-  },
-  lastname: {
+  fullName: {
     type: String,
     required: true,
   },
@@ -25,6 +21,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
+    default: "buyer",
   },
   wishlist: {
     type: [mongoose.Schema.Types.ObjectId],

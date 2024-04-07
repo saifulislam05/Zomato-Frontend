@@ -6,23 +6,7 @@ import CuisineOptions from "./CuisineOptions";
 import SimilarRestaurants from "./SimilarRestaurants";
 import { restaurants } from "../../../data/restaurants";
 
-const Overview = () => {
-  //  const { city, hotel, page = "" } = useParams();
-
-  const data = {
-    phone: "9988098812",
-    address: "50000, kukatpally, Hyderabad, Telangana, India",
-    lat: 11.11,
-    lng: 18.31,
-  };
-
-  const labels = [
-    { link: "/", title: "North Indian" },
-    { link: "/", title: "South Indian" },
-    { link: "/", title: "East Indian" },
-    { link: "/", title: "West Indian" },
-    { link: "/", title: "Desserts" },
-  ];
+const Overview = ({data}) => {
 
   const menuData = [
     {
@@ -39,27 +23,12 @@ const Overview = () => {
     },
   ];
 
-  const moreInfo = [
-    "Breakfast",
-    "Takeaway Available",
-    "Family Friendly",
-    "Home Delivery",
-    "Indoor Seating",
-  ];
 
-  const collectionData = [
-    { imgSrc: "catchTheMatchImg", title: "Catch the Match", places: "23" },
-    {
-      imgSrc: "catchTheMatchImg",
-      title: "Catch the Match Again",
-      places: "30",
-    },
-  ];
 
   return (
     <div className="w-full h-full">
       <div className="flex flex-wrap">
-        <div className="w-full lg:w-7/12 overflow-y-auto pr-4">
+        <div className="w-full lg:w-7/12  pr-4">
           <h2 className="text-2xl font-semibold my-4">About this place</h2>
 
           {/* Menu Section */}
@@ -87,11 +56,11 @@ const Overview = () => {
           <div className="my-6">
             <h3 className="text-xl font-semibold mb-2">Cuisines</h3>
             <div className="flex flex-wrap gap-3">
-              {labels.map((label, index) => (
+              {data?.info?.cuisine?.map((item) => (
                 <CuisineOptions
-                  key={index}
-                  link={label.link}
-                  title={label.title}
+                  key={item._id}
+                  link={item.url}
+                  title={item.name}
                 />
               ))}
             </div>

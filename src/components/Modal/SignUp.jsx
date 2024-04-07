@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
- import { ToastContainer, toast } from "react-toastify";
- import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+
 import { IoMdClose } from "react-icons/io";
+import { useAuth } from "../../Context/AuthContext";
 
 const SignUp = ({ setIsSignUpModalOpen }) => {
+  const { signup } = useAuth();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -67,13 +68,8 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
       toast.error("Please fill out all fields correctly.");
       return;
     }
-
     try {
-      const response = await axios.post(
-        "http://localhost:10000/v1/api/user/signup",
-        formData
-      );
-      localStorage.setItem("user", JSON.stringify(response.data));
+      await signup(formData); // Use signup from useAuth
       setIsSignUpModalOpen(false);
       toast.success("Signup successful!");
     } catch (error) {
@@ -98,17 +94,6 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
 
   return (
     <div className="fixed inset-0 z-[999] overflow-hidden bg-black bg-opacity-75 flex justify-center items-center">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       {errors.general && (
         <p className="text-red-500 text-center mt-4 ">{errors.general}</p>
       )}

@@ -5,6 +5,7 @@ import Header from "../components/Home/Header";
 import GallaryGrid from "../components/Restaurant/GallaryGrid";
 import RestaurantInfo from "../components/Restaurant/RestaurantInfo";
 import Details from "../components/Restaurant/Details";
+import Footer from "../components/WelcomePage/Footer";
 
 const RestaurantDetails = () => {
   const { restaurantId } = useParams();
@@ -74,6 +75,7 @@ const RestaurantDetails = () => {
         <RestaurantInfo data={restaurantData} />
         <Details data={restaurantData} />
       </div>
+      <Footer/>
     </div>
   );
 };

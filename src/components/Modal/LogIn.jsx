@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { IoMdClose, IoMdMail } from "react-icons/io";
-import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../../Context/AuthContext";
+
+
 
 const LogIn = ({ setIsLogInModalOpen }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const LogIn = ({ setIsLogInModalOpen }) => {
   });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const { login } = useAuth();
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -58,11 +60,7 @@ const LogIn = ({ setIsLogInModalOpen }) => {
       return;
     }
     try {
-      const response = await axios.post(
-        "http://localhost:10000/v1/api/user/login",
-        formData
-      );
-      localStorage.setItem("user", JSON.stringify(response.data));
+      await login(formData); 
       setIsLogInModalOpen(false);
       toast.success("Login successful!");
     } catch (error) {
@@ -85,17 +83,6 @@ const LogIn = ({ setIsLogInModalOpen }) => {
 
   return (
     <div className="fixed inset-0 z-[999] overflow-hidden bg-black bg-opacity-75 flex justify-center items-center">
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <div className="bg-white p-8 pt-6 rounded-lg shadow-xl w-10/12 md:w-6/12 lg:w-4/12 text-black">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Login</h1>

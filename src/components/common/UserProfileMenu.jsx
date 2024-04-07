@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 
+
 const UserProfileMenu = ({ menuDisplay, logoutHandler, setMenuDisplay }) => {
   return (
     <div className="relative mr-4 text-lg cursor-pointer ">

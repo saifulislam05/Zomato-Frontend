@@ -1,5 +1,4 @@
 import React from "react";
-import { restaurants } from "../../../data/restaurants";
 import Filter from "../Filter";
 import ExploreSection from "../ExploreSection";
 import ExploreOptions from "../../WelcomePage/ExploreOptions";
@@ -42,8 +41,7 @@ const Delivery = () => {
       <DeliveryCollections />
       <div className="w-10/12 mx-auto my-6">
         <ExploreSection
-          restaurants={restaurants}
-          collectionName="Deliver Restaurants in Kolkata"
+          collectionName="Delivery Restaurants in Kolkata"
         />
       </div>
       <ExploreOptions />

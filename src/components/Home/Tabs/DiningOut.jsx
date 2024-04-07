@@ -111,12 +111,12 @@ const DiningOut = () => {
             srcSet=""
           />
         </div>
-        {restaurants.length >0 && (
+        
           <ExploreSection
-            restaurants={restaurants}
+            
             collectionName="Trending dining Restaurants in Kolkata"
           />
-        )}
+     
       </div>
       <ExploreOptions />
     </>

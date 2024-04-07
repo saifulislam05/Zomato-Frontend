@@ -19,17 +19,17 @@ This frontend application provides a user-friendly interface for accessing and i
 
 ## Screenshots
 
-##### Welcome page
+### Welcome page
 ![image](https://github.com/saifulislam05/Zomato-Frontend/assets/73392705/85ed1d21-c68a-41e3-bb58-20886ccf4d3f)
 
-##### SignUp page
+### SignUp page
 ![image](https://github.com/saifulislam05/Zomato-Frontend/assets/73392705/16e168f1-e4c7-44b1-b7e0-fb466f9da13b)
 
-##### Login page
+### Login page
 ![image](https://github.com/saifulislam05/Zomato-Frontend/assets/73392705/0a68fe16-9145-4978-b6bd-679140d938b7)
 
-##### Home page with Tab sections
+### Home page with Tab sections
 ![image](https://github.com/saifulislam05/Zomato-Frontend/assets/73392705/627860ff-b5b3-4d21-8641-790e182218f8)
 
-##### Restaurant Details page with Tab section
+### Restaurant Details page with Tab section
 ![image](https://github.com/saifulislam05/Zomato-Frontend/assets/73392705/432037a9-5200-4914-be6a-22bdb7e65363)

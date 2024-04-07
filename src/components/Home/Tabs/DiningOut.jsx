@@ -1,5 +1,4 @@
 import React from "react";
-import { dining as diningList } from "../../../data/dining";
 import Collection from "../../WelcomePage/Collection";
 import Filter from "../Filter";
 import ExploreSection from "../ExploreSection";
@@ -85,7 +84,7 @@ const DiningOut = () => {
     const fetchRestaurants = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:10000/v1/api/restaurant"
+          `${import.meta.env.VITE_API_BASE_URL}/restaurant`
         );
         setRestaurants(response.data.data); // Assuming the API response structure matches the expected format
       } catch (error) {

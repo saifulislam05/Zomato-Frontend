@@ -13,7 +13,7 @@ const ExploreSection = ({  collectionName }) => {
       const fetchRestaurants = async () => {
         try {
           const response = await axios.get(
-            "http://localhost:10000/v1/api/restaurant"
+            `${import.meta.env.VITE_API_BASE_URL}/restaurant`
           );
           setRestaurants(response.data.data); // Assuming the API response structure matches the expected format
         } catch (error) {

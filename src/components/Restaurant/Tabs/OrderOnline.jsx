@@ -2,9 +2,17 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SideNav from "./SideNav";
 import { FaRegCompass, FaRegClock } from "react-icons/fa";
-import {offerTrackData} from "../../../data/orderOnline";
+
 import SmallSearchBar from "./SmallSearchBar";
 import { Link } from "react-router-dom";
+
+const offerTrackData = [
+  {
+    txt1: "0% OFF up to ₹80 + 10% OFF up to ₹75 Paytm Cashback",
+    txt2: "use code PAYTMBASH",
+  },
+  { txt1: "Flat ₹125 OFF", txt2: "use code ICICINB" },
+];
 
 const OrderOnline = () => {
   const [foodItems, setFoodItems] = useState([]);
@@ -15,7 +23,9 @@ const OrderOnline = () => {
   useEffect(() => {
     const fetchFoodData = async () => {
       try {
-        const response = await axios.get(`http://localhost:10000/v1/api/food`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/food`
+        );
         setFoodItems(response.data);
         // setCategories(response.data.map(item=>item.categoryName))
         if (response.data.length > 0) {

@@ -25,3 +25,9 @@ dist-ssr
 
 
 .env
+
+# data files 
+
+nightLife.js
+orderOnline.js
+restaurants.js

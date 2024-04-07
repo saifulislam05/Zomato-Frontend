@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-
 import { IoMdClose } from "react-icons/io";
 import { useAuth } from "../../Context/AuthContext";
+
 
 const SignUp = ({ setIsSignUpModalOpen }) => {
   const { signup } = useAuth();
@@ -15,6 +14,7 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
   });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Validate form fields individually
   const validateField = (name, value) => {
@@ -57,33 +57,18 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
   useEffect(() => {
     const isValid =
       Object.values(errors).every((error) => error === "") &&
-      Object.values(formData).every((value) => value);
+      Object.values(formData).every((value) => value !== "" && value !== false);
     setIsFormValid(isValid);
   }, [errors, formData]);
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isFormValid) {
-      toast.error("Please fill out all fields correctly.");
-      return;
-    }
-    try {
-      await signup(formData); // Use signup from useAuth
-      setIsSignUpModalOpen(false);
-      toast.success("Signup successful!");
-    } catch (error) {
-      // Check if the error response is structured and contains a message
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error("An unexpected error occurred. Please try again.");
-      }
-    }
+    if (!isFormValid) return;
+    setIsLoading(true);
+    await signup(formData);
+    setIsLoading(false);
+    setIsSignUpModalOpen(false);
   };
 
   // Helper function to return input class based on error
@@ -192,14 +177,14 @@ const SignUp = ({ setIsSignUpModalOpen }) => {
           {/* Submit button */}
           <button
             type="submit"
-            className={`mt-4 w-full py-2 rounded-md ${
-              !isFormValid
+            className={`mt-4 w-full py-2 rounded-md flex justify-center items-center ${
+              !isFormValid || isLoading
                 ? "bg-gray-300 text-gray-500"
                 : "bg-blue-500 text-white"
             }`}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading}
           >
-            Create Account
+            {isLoading ? <div className="spinner w-fit"></div> : "Sign Up"}
           </button>
         </form>
         <div className="flex items-center gap-2 mt-4">

@@ -1,7 +1,7 @@
-// AuthContext.js
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode"; 
 import { toast } from "react-toastify";
 
 const AuthContext = createContext();
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (formData) => {
     try {
       const response = await axios.post(
-        `http://localhost:10000/v1/api/user/login`,
+        `${import.meta.env.VITE_API_BASE_URL}/user/login`,
         formData
       );
       const { token } = response.data;
@@ -44,16 +44,19 @@ export const AuthProvider = ({ children }) => {
       const decoded = jwtDecode(token);
       setIsLoggedIn(true);
       setUserDetails(decoded);
-      
+      toast.success("Login successful!");
     } catch (error) {
-     console.log(error)
+      console.error("Login error: ", error);
+      toast.error(
+        error.response?.data?.message || "Login failed. Please try again."
+      );
     }
   };
 
   const signup = async (formData) => {
     try {
       const response = await axios.post(
-        `http://localhost:10000/v1/api/user/signup`,
+        `${import.meta.env.VITE_API_BASE_URL}/user/signup`,
         formData
       );
       const { token } = response.data;
@@ -62,30 +65,30 @@ export const AuthProvider = ({ children }) => {
       const decoded = jwtDecode(token);
       setIsLoggedIn(true);
       setUserDetails(decoded);
-      
+      toast.success("Signup successful!");
     } catch (error) {
-      console.log(error);
+      console.error("Signup error: ", error);
+      toast.error(
+        error.response?.data?.message || "Signup failed. Please try again."
+      );
     }
   };
 
   const logout = async () => {
     try {
-      await axios.post(`http://localhost:10000/v1/api/user/logout`);
+      
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/logout`);
       toast.success("Successfully Logged Out!");
     } catch (error) {
       console.error("Error during logout: ", error);
-      if (error.response && error.response.status === 401) {
-        toast.success("Already Login expired!");
-      } else {
-        toast.error("Error during logout");
-        return;
-      }
+      toast.error("Error during logout. Please try again.");
+    } finally {
+      
+      localStorage.removeItem("user");
+      setAuthHeader(null);
+      setIsLoggedIn(false);
+      setUserDetails({});
     }
-
-    localStorage.removeItem("user");
-    setAuthHeader(null);
-    setIsLoggedIn(false);
-    setUserDetails({});
   };
 
   return (

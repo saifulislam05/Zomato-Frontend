@@ -1,5 +1,4 @@
 import React from "react";
-import {nightLife} from "../../../data/nightLife"
 import Filter from "../Filter";
 import ExploreSection from "../ExploreSection";
 import ExploreOptions from "../../WelcomePage/ExploreOptions";
@@ -76,7 +75,6 @@ const NightLife = () => {
           />
         </div>
         <ExploreSection
-          restaurants={nightLife}
           collectionName="Nightlife Restaurants in Kolkata"
         />
       </div>

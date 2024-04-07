@@ -4,9 +4,28 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import CuisineOptions from "./CuisineOptions";
 import SimilarRestaurants from "./SimilarRestaurants";
-import { restaurants } from "../../../data/restaurants";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Overview = ({data}) => {
+const [restaurants, setRestaurants] = useState([]);
+
+useEffect(() => {
+  // Fetch restaurants data from API
+  const fetchRestaurants = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_BASE_URL}/restaurant`
+      );
+      setRestaurants(response.data.data); 
+    } catch (error) {
+      console.error("Failed to fetch restaurants:", error);
+    }
+  };
+
+  fetchRestaurants();
+}, []);
 
   const menuData = [
     {

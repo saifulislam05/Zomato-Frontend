@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import { IoMdClose, IoMdMail } from "react-icons/io";
 import { useAuth } from "../../Context/AuthContext";
 
 
-
 const LogIn = ({ setIsLogInModalOpen }) => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
 
   useEffect(() => {
@@ -55,27 +51,12 @@ const LogIn = ({ setIsLogInModalOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!isFormValid) {
-      toast.error("Please fill out all fields correctly.");
-      return;
-    }
-    try {
-      await login(formData); 
-      setIsLogInModalOpen(false);
-      toast.success("Login successful!");
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        toast.error(error.response.data.message);
-      } else {
-        toast.error("An unexpected error occurred. Please try again.");
-      }
-    }
+    if (!isFormValid) return;
+    setIsLoading(true);
+    await login(formData); 
+    setIsLoading(false);
+    setIsLogInModalOpen(false);
   };
-
   const getInputClass = (name) =>
     `border ${
       errors[name] ? "border-red-500" : "border-gray-300"
@@ -123,14 +104,14 @@ const LogIn = ({ setIsLogInModalOpen }) => {
           </div>
           <button
             type="submit"
-            className={`mt-4 w-full py-2 rounded-md ${
-              !isFormValid
+            className={`mt-4 w-full py-2 rounded-md flex justify-center items-center ${
+              !isFormValid || isLoading
                 ? "bg-gray-300 text-gray-500"
                 : "bg-blue-500 text-white"
             }`}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading}
           >
-            Login
+            {isLoading ? <div className="spinner w-fit"></div> : "Log In"}
           </button>
         </form>
         <div className="flex items-center gap-2 mt-4">
